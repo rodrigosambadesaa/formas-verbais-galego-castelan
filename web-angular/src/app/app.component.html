@@ -1,0 +1,99 @@
+<main class="page">
+    <section class="hero">
+        <div class="hero__badge">Corpus ES-GL</div>
+        <h1>Navegador de Verbos Relacionados</h1>
+        <p>
+            Explora pares de verbos castellano-galego y consulta las formas alineadas por tiempo y persona.
+        </p>
+        <div class="hero__stats">
+            <article>
+                <strong>{{ pairs.length | number }}</strong>
+                <span>Pares de infinitivos</span>
+            </article>
+            <article>
+                <strong>{{ alignments.length | number }}</strong>
+                <span>Formas alineadas</span>
+            </article>
+            <article>
+                <strong>{{ filteredAlignments.length | number }}</strong>
+                <span>Resultado filtro</span>
+            </article>
+        </div>
+    </section>
+
+    <section class="layout">
+        <aside class="panel panel--pairs">
+            <header>
+                <h2>Verbos relacionados</h2>
+                <small *ngIf="selectedPair">Activo: {{ selectedPair.es }} - {{ selectedPair.gl }}</small>
+            </header>
+
+            <div class="controls">
+                <input type="text" placeholder="Buscar infinitivo ES o GL" [(ngModel)]="pairSearch"
+                    (input)="onPairSearchChange()" />
+                <button type="button" (click)="clearPair()" [disabled]="!selectedPair">Limpiar selección</button>
+            </div>
+
+            <p class="status" *ngIf="loadingPairs">Cargando pares...</p>
+            <p class="status status--error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+            <ul class="pair-list" *ngIf="!loadingPairs">
+                <li *ngFor="let pair of filteredPairs" (click)="choosePair(pair)"
+                    [class.active]="selectedPair?.es === pair.es && selectedPair?.gl === pair.gl">
+                    <span class="es">{{ pair.es }}</span>
+                    <span class="arrow">→</span>
+                    <span class="gl">{{ pair.gl }}</span>
+                </li>
+            </ul>
+        </aside>
+
+        <section class="panel panel--table">
+            <header>
+                <h2>Formas verbales alineadas</h2>
+                <small>Mostrando {{ visibleAlignments.length }} de {{ filteredAlignments.length }}</small>
+            </header>
+
+            <div class="controls controls--grid">
+                <input type="text" placeholder="Buscar por forma/tiempo/persona" [(ngModel)]="alignmentSearch"
+                    (input)="applyAlignmentFilters()" />
+
+                <select [(ngModel)]="selectedTense" (change)="applyAlignmentFilters()">
+                    <option value="ALL">Todos los tiempos</option>
+                    <option *ngFor="let tense of tenseOptions" [value]="tense">{{ tense }}</option>
+                </select>
+
+                <select [(ngModel)]="selectedPerson" (change)="applyAlignmentFilters()">
+                    <option value="ALL">Todas las personas</option>
+                    <option *ngFor="let person of personOptions" [value]="person">{{ person }}</option>
+                </select>
+            </div>
+
+            <p class="status" *ngIf="loadingAlignments">Cargando alineaciones...</p>
+            <p class="status" *ngIf="!loadingAlignments && !alignments.length">
+                No se encontró assets/data/alineaciones_completas.tsv. Puedes copiarlo para habilitar esta vista
+                completa.
+            </p>
+
+            <div class="table-wrap" *ngIf="!loadingAlignments && alignments.length">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Forma ES</th>
+                            <th>Forma GL</th>
+                            <th>Tiempo</th>
+                            <th>Persona</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of visibleAlignments">
+                            <td>{{ row.es }}</td>
+                            <td>{{ row.gl }}</td>
+                            <td><code>{{ row.tense }}</code></td>
+                            <td><code>{{ row.person }}</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+</main>

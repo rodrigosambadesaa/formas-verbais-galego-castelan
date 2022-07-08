@@ -1,0 +1,9 @@
+services:
+  web-angular:
+    build:
+      context: ./web-angular
+      dockerfile: Dockerfile
+    container_name: verbos-es-gl-web
+    ports:
+      - "8080:80"
+    restart: unless-stopped
