@@ -29,8 +29,8 @@
             </header>
 
             <div class="controls">
-                <input type="text" placeholder="Buscar infinitivo ES o GL" [(ngModel)]="pairSearch"
-                    (input)="onPairSearchChange()" />
+                <input type="text" placeholder="Buscar infinitivo ES o GL" [(ngModel)]="pairSearch" maxlength="120"
+                    autocomplete="off" autocapitalize="off" spellcheck="false" (input)="onPairSearchChange()" />
                 <button type="button" (click)="clearPair()" [disabled]="!selectedPair">Limpiar selección</button>
             </div>
 
@@ -38,7 +38,7 @@
             <p class="status status--error" *ngIf="errorMessage">{{ errorMessage }}</p>
 
             <ul class="pair-list" *ngIf="!loadingPairs">
-                <li *ngFor="let pair of filteredPairs" (click)="choosePair(pair)"
+                <li *ngFor="let pair of filteredPairs; trackBy: trackPair" (click)="choosePair(pair)"
                     [class.active]="selectedPair?.es === pair.es && selectedPair?.gl === pair.gl">
                     <span class="es">{{ pair.es }}</span>
                     <span class="arrow">→</span>
@@ -55,6 +55,7 @@
 
             <div class="controls controls--grid">
                 <input type="text" placeholder="Buscar por forma/tiempo/persona" [(ngModel)]="alignmentSearch"
+                    maxlength="120" autocomplete="off" autocapitalize="off" spellcheck="false"
                     (input)="applyAlignmentFilters()" />
 
                 <select [(ngModel)]="selectedTense" (change)="applyAlignmentFilters()">
@@ -85,11 +86,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let row of visibleAlignments">
-                            <td>{{ row.es }}</td>
-                            <td>{{ row.gl }}</td>
-                            <td><code>{{ row.tense }}</code></td>
-                            <td><code>{{ row.person }}</code></td>
+                        <tr *ngFor="let row of visibleAlignments; trackBy: trackAlignment">
+                            <td data-label="Forma ES">{{ row.es }}</td>
+                            <td data-label="Forma GL">{{ row.gl }}</td>
+                            <td data-label="Tiempo"><code>{{ row.tense }}</code></td>
+                            <td data-label="Persona"><code>{{ row.person }}</code></td>
                         </tr>
                     </tbody>
                 </table>

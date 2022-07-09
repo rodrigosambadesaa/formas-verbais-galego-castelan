@@ -179,7 +179,10 @@ def load_pairs(input_path: Path) -> List[VerbPair]:
                 continue
             seen.add(key)
             pairs.append(VerbPair(es=es, gl=gl))
-    return pairs
+    return sorted(
+        pairs,
+        key=lambda p: (normalize_text(p.es).lower(), normalize_text(p.gl).lower()),
+    )
 
 
 def flatten_xml_text(elem: ET.Element) -> str:
@@ -204,10 +207,6 @@ def extract_apertium_pairs(dix_path: Path) -> List[VerbPair]:
     pairs: List[VerbPair] = []
     seen = set()
 
-    def looks_like_infinitive(token: str) -> bool:
-        t = canon_person(token)
-        return t.endswith(("ar", "er", "ir", "or")) and len(t) >= 3
-
     for entry in root.findall(".//e"):
         if not has_verb_tag(entry):
             continue
@@ -230,16 +229,16 @@ def extract_apertium_pairs(dix_path: Path) -> List[VerbPair]:
         if " " in es or " " in gl:
             continue
 
-        if not looks_like_infinitive(es) or not looks_like_infinitive(gl):
-            continue
-
         key = (es.lower(), gl.lower())
         if key in seen:
             continue
         seen.add(key)
         pairs.append(VerbPair(es=es, gl=gl))
 
-    return pairs
+    return sorted(
+        pairs,
+        key=lambda p: (normalize_text(p.es).lower(), normalize_text(p.gl).lower()),
+    )
 
 
 def export_pairs_tsv(path: Path, pairs: Sequence[VerbPair]) -> None:
@@ -278,7 +277,13 @@ def run_linguakit_conj(
     if not stdout:
         raise RuntimeError(f"LinguaKit no devolvio salida para {verb}/{lang}")
 
-    return json.loads(stdout)
+    try:
+        return json.loads(stdout)
+    except json.JSONDecodeError as exc:
+        head = stdout[:200].replace("\n", " ")
+        raise RuntimeError(
+            f"LinguaKit devolvio JSON invalido para {verb}/{lang}. Salida inicial: {head!r}"
+        ) from exc
 
 
 def build_tense_map(conj_json: Dict) -> Dict[str, Dict[str, object]]:
@@ -511,6 +516,11 @@ def main() -> int:
         help="Numero de workers para preconjugacion paralela",
     )
     parser.add_argument(
+        "--only-export-pairs",
+        action="store_true",
+        help="Solo extrae/exporta pares y termina sin conjugar ni alinear",
+    )
+    parser.add_argument(
         "--linguakit",
         default=DEFAULT_LINGUAKIT,
         help="Ruta a linguakit.bat (Windows) o linguakit (Linux/macOS)",
@@ -527,11 +537,17 @@ def main() -> int:
             pairs = load_pairs(input_path)
         else:
             pairs = extract_apertium_pairs(Path(args.apertium_dix))
-            if args.export_pairs:
-                export_pairs_tsv(Path(args.export_pairs), pairs)
+        if args.export_pairs:
+            export_pairs_tsv(Path(args.export_pairs), pairs)
     except Exception as exc:
         print(f"[ERROR] {exc}", file=sys.stderr)
         return 1
+
+    if args.only_export_pairs:
+        print(f"Pares exportados: {len(pairs)}")
+        if args.export_pairs:
+            print(f"Archivo de pares: {args.export_pairs}")
+        return 0
 
     rows: List[Tuple[str, str, str, str]] = []
     logs: List[str] = []
@@ -554,17 +570,21 @@ def main() -> int:
         unique_tasks.append(("ter", "gl"))
 
     def _conj_job(verb: str, lang: str) -> Tuple[str, str, Optional[Dict], Optional[str]]:
-        try:
-            c = run_linguakit_conj(
-                linguakit_cmd,
-                verb,
-                lang,
-                timeout_s=args.conj_timeout,
-                env=sub_env,
-            )
-            return verb, lang, c, None
-        except Exception as exc:
-            return verb, lang, None, str(exc)
+        last_err = ""
+        for attempt in range(3):
+            timeout_s = max(1, int(args.conj_timeout)) * (attempt + 1)
+            try:
+                c = run_linguakit_conj(
+                    linguakit_cmd,
+                    verb,
+                    lang,
+                    timeout_s=timeout_s,
+                    env=sub_env,
+                )
+                return verb, lang, c, None
+            except Exception as exc:
+                last_err = str(exc)
+        return verb, lang, None, last_err
 
     workers = max(1, int(args.workers))
     done = 0
@@ -593,10 +613,12 @@ def main() -> int:
             gl_json = conj_cache[(pair.gl.lower(), "gl")]
         except Exception as exc:
             logs.append(f"[!] Error de conjugacion para {pair.es}/{pair.gl}: {exc}")
+            rows.append((pair.es, pair.gl, "PAIR_ONLY", "NA"))
             continue
 
         if int(es_json.get("known", 1)) == 0 or int(gl_json.get("known", 1)) == 0:
             logs.append(f"[!] Verbo desconocido: {pair.es}/{pair.gl}")
+            rows.append((pair.es, pair.gl, "PAIR_ONLY", "NA"))
             continue
 
         es_map = build_tense_map(es_json)

@@ -251,4 +251,64 @@ code {
         grid-template-columns: 1fr;
         display: grid;
     }
+
+    .table-wrap {
+        border: 0;
+        overflow: visible;
+        max-height: none;
+    }
+
+    table,
+    thead,
+    tbody,
+    tr,
+    th,
+    td {
+        display: block;
+        width: 100%;
+    }
+
+    thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        border: 0;
+    }
+
+    tbody {
+        display: grid;
+        gap: 0.65rem;
+    }
+
+    tbody tr {
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        border-radius: 12px;
+        padding: 0.45rem 0.6rem;
+        background: rgba(10, 18, 36, 0.7);
+    }
+
+    tbody tr:hover {
+        background: rgba(37, 99, 235, 0.2);
+    }
+
+    td {
+        display: grid;
+        grid-template-columns: minmax(88px, 34%) 1fr;
+        gap: 0.65rem;
+        align-items: center;
+        border: 0;
+        padding: 0.38rem 0;
+    }
+
+    td::before {
+        content: attr(data-label);
+        color: #93c5fd;
+        font-size: 0.78rem;
+        letter-spacing: 0.03em;
+        font-weight: 600;
+    }
 }
