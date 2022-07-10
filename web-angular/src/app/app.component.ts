@@ -183,6 +183,13 @@ export class AppComponent implements OnInit {
     this.applyAlignmentFilters();
   }
 
+  clearAlignmentFilters(): void {
+    this.selectedTense = 'ALL';
+    this.selectedPerson = 'ALL';
+    this.alignmentSearch = '';
+    this.applyAlignmentFilters();
+  }
+
   applyAlignmentFilters(): void {
     const query = this.normalizeQuery(this.alignmentSearch);
     this.alignmentSearch = query;
@@ -224,5 +231,9 @@ export class AppComponent implements OnInit {
 
   get visibleAlignments(): Alignment[] {
     return this.filteredAlignments.slice(0, this.maxRows);
+  }
+
+  get hiddenAlignmentCount(): number {
+    return Math.max(this.filteredAlignments.length - this.visibleAlignments.length, 0);
   }
 }

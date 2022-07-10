@@ -5,6 +5,10 @@
         <p>
             Explora pares de verbos castellano-galego y consulta las formas alineadas por tiempo y persona.
         </p>
+        <p class="hero__hint">
+            Selecciona un infinitivo para acotar la tabla, combina filtros y revisa hasta {{ maxRows }} resultados por
+            vista para mantener la navegación fluida.
+        </p>
         <div class="hero__stats">
             <article>
                 <strong>{{ pairs.length | number }}</strong>
@@ -45,6 +49,9 @@
                     <span class="gl">{{ pair.gl }}</span>
                 </li>
             </ul>
+            <p class="status" *ngIf="!loadingPairs && !filteredPairs.length">
+                No hay pares que coincidan con la búsqueda actual.
+            </p>
         </aside>
 
         <section class="panel panel--table">
@@ -67,12 +74,23 @@
                     <option value="ALL">Todas las personas</option>
                     <option *ngFor="let person of personOptions" [value]="person">{{ person }}</option>
                 </select>
+
+                <button type="button" class="button--secondary" (click)="clearAlignmentFilters()">
+                    Limpiar filtros
+                </button>
             </div>
 
             <p class="status" *ngIf="loadingAlignments">Cargando alineaciones...</p>
             <p class="status" *ngIf="!loadingAlignments && !alignments.length">
                 No se encontró assets/data/alineaciones_completas.tsv. Puedes copiarlo para habilitar esta vista
                 completa.
+            </p>
+            <p class="status" *ngIf="!loadingAlignments && alignments.length && !filteredAlignments.length">
+                No hay formas alineadas que coincidan con los filtros seleccionados.
+            </p>
+            <p class="status status--info" *ngIf="hiddenAlignmentCount">
+                Hay {{ hiddenAlignmentCount | number }} resultados adicionales ocultos. Refina la búsqueda para ver una
+                lista más precisa.
             </p>
 
             <div class="table-wrap" *ngIf="!loadingAlignments && alignments.length">
