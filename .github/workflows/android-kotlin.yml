@@ -1,0 +1,54 @@
+name: Android Kotlin corpus
+
+on:
+  push:
+    paths:
+      - 'android-kotlin/**'
+      - 'web-angular/src/assets/data/verbos_relacionados.tsv'
+      - 'formas_verbais_es_gl_completo.txt'
+      - '.github/workflows/android-kotlin.yml'
+  pull_request:
+    paths:
+      - 'android-kotlin/**'
+      - 'web-angular/src/assets/data/verbos_relacionados.tsv'
+      - 'formas_verbais_es_gl_completo.txt'
+      - '.github/workflows/android-kotlin.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  android:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Ensure Android SDK 35 is available
+        env:
+          ANDROID_HOME: /usr/local/lib/android/sdk
+          ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+        run: |
+          SDKMANAGER="$(find "$ANDROID_HOME/cmdline-tools" -name sdkmanager -type f | sort -V | tail -1)"
+          test -x "$SDKMANAGER"
+          "$SDKMANAGER" --install 'platforms;android-35' 'build-tools;35.0.0'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.11.1'
+      - name: Validate canonical ES-GL data
+        run: python3 android-kotlin/tools/validate_corpus.py
+      - name: Unit tests and APK
+        run: gradle --no-daemon -p android-kotlin testDebugUnitTest assembleDebug
+      - name: Verify nonempty APK
+        run: test -s android-kotlin/app/build/outputs/apk/debug/app-debug.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: formas-verbais-android-debug
+          path: android-kotlin/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
