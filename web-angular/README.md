@@ -19,6 +19,16 @@ npm start
 
 La aplicación queda disponible en `http://localhost:4200`.
 
+## Docker
+
+Desde la raíz del repositorio:
+
+```powershell
+docker compose up --build web-angular
+```
+
+La versión dockerizada queda disponible en `http://localhost:28180`.
+
 ## Build
 
 ```powershell
