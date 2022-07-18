@@ -1,0 +1,163 @@
+####-----------------------------####
+## LOG ALIÑAMENTO ES-GL (15:25:21) ##
+####-----------------------------####
+
+[!] Falta o tempo verbal FI-FI+1PS para o par soler/adoitar
+[!] Falta o tempo verbal FI-FI+2PS para o par soler/adoitar
+[!] Falta o tempo verbal FI-FI+3PS para o par soler/adoitar
+[!] Falta o tempo verbal FI-FI+1PP para o par soler/adoitar
+[!] Falta o tempo verbal FI-FI+2PP para o par soler/adoitar
+[!] Falta o tempo verbal FI-FI+3PP para o par soler/adoitar
+[!] Falta o tempo verbal TI-TI+1PS para o par soler/adoitar
+[!] Falta o tempo verbal TI-TI+2PS para o par soler/adoitar
+[!] Falta o tempo verbal TI-TI+3PS para o par soler/adoitar
+[!] Falta o tempo verbal TI-TI+1PP para o par soler/adoitar
+[!] Falta o tempo verbal TI-TI+2PP para o par soler/adoitar
+[!] Falta o tempo verbal TI-TI+3PP para o par soler/adoitar
+[!] Falta o tempo verbal IS-IS+1PS para o par soler/adoitar
+[!] Falta o tempo verbal IS-IS+2PS para o par soler/adoitar
+[!] Falta o tempo verbal IS-IS+3PS para o par soler/adoitar
+[!] Falta o tempo verbal IS-IS+1PP para o par soler/adoitar
+[!] Falta o tempo verbal IS-IS+2PP para o par soler/adoitar
+[!] Falta o tempo verbal IS-IS+3PP para o par soler/adoitar
+[!] Falta o tempo verbal FS-FS+1PS para o par soler/adoitar
+[!] Falta o tempo verbal FS-FS+2PS para o par soler/adoitar
+[!] Falta o tempo verbal FS-FS+3PS para o par soler/adoitar
+[!] Falta o tempo verbal FS-FS+1PP para o par soler/adoitar
+[!] Falta o tempo verbal FS-FS+2PP para o par soler/adoitar
+[!] Falta o tempo verbal FS-FS+3PP para o par soler/adoitar
+[!] Non hai persoa para o par interponer/interpor (PI-PI)
+[!] Non hai persoa para o par interponer/interpor (II-II)
+[!] Non hai persoa para o par interponer/interpor (EI-EI)
+[!] Non hai persoa para o par interponer/interpor (FI-FI)
+[!] Non hai persoa para o par interponer/interpor (TI-TI)
+[!] Non hai persoa para o par interponer/interpor (PS-PS)
+[!] Non hai persoa para o par interponer/interpor (IS-IS)
+[!] Non hai persoa para o par interponer/interpor (FS-FS)
+[!] Non hai persoa para o par interponer/interpor (IA-IA)
+[!] Non hai persoa para o par interponer/interpor (IN-IN)
+[!] Non hai persoa para o par interponer/interpor (FN-FN)
+[!] Non hai persoa para o par interponer/interpor (FN-IP)
+[!] Falta o tempo verbal IA-IA+2PS para o par ocurrir/ocorrer
+[!] Falta o tempo verbal IA-IA+2PP para o par ocurrir/ocorrer
+[!] Falta o tempo verbal IN-IN+2PS para o par ocurrir/ocorrer
+[!] Falta o tempo verbal IN-IN+1PP para o par ocurrir/ocorrer
+[!] Falta o tempo verbal IN-IN+2PP para o par ocurrir/ocorrer
+[!] Falta o tempo verbal IA-IA+2PS para o par poder/poder
+[!] Falta o tempo verbal IA-IA+2PP para o par poder/poder
+[!] Non hai persoa para o par poner/pór (PI-PI)
+[!] Non hai persoa para o par poner/pór (II-II)
+[!] Non hai persoa para o par poner/pór (EI-EI)
+[!] Non hai persoa para o par poner/pór (FI-FI)
+[!] Non hai persoa para o par poner/pór (TI-TI)
+[!] Non hai persoa para o par poner/pór (PS-PS)
+[!] Non hai persoa para o par poner/pór (IS-IS)
+[!] Non hai persoa para o par poner/pór (FS-FS)
+[!] Non hai persoa para o par poner/pór (IA-IA)
+[!] Non hai persoa para o par poner/pór (IN-IN)
+[!] Non hai persoa para o par poner/pór (FN-FN)
+[!] Non hai persoa para o par poner/pór (FN-IP)
+[!] Falta o tempo verbal IA-IA+2PS para o par acontecer/acontecer
+[!] Falta o tempo verbal IA-IA+2PP para o par acontecer/acontecer
+[!] Falta o tempo verbal IN-IN+2PS para o par acontecer/acontecer
+[!] Falta o tempo verbal IN-IN+1PP para o par acontecer/acontecer
+[!] Falta o tempo verbal IN-IN+2PP para o par acontecer/acontecer
+[!] Falta o tempo verbal IA-IA+2PS para o par competer/competer
+[!] Falta o tempo verbal IA-IA+2PP para o par competer/competer
+[!] Falta o tempo verbal IN-IN+2PS para o par competer/competer
+[!] Falta o tempo verbal IN-IN+1PP para o par competer/competer
+[!] Falta o tempo verbal IN-IN+2PP para o par competer/competer
+[!] Falta o tempo verbal IA-IA+2PS para o par acaecer/acaecer
+[!] Falta o tempo verbal IA-IA+2PP para o par acaecer/acaecer
+[!] Falta o tempo verbal IN-IN+2PS para o par acaecer/acaecer
+[!] Falta o tempo verbal IN-IN+1PP para o par acaecer/acaecer
+[!] Falta o tempo verbal IN-IN+2PP para o par acaecer/acaecer
+[!] Falta o tempo verbal IA-IA+2PS para o par atañer/incumbir
+[!] Falta o tempo verbal IA-IA+2PP para o par atañer/incumbir
+[!] Falta o tempo verbal IN-IN+2PS para o par atañer/incumbir
+[!] Falta o tempo verbal IN-IN+1PP para o par atañer/incumbir
+[!] Falta o tempo verbal IN-IN+2PP para o par atañer/incumbir
+[!] Non hai persoa para o par sobreponer/sobrepor (PI-PI)
+[!] Non hai persoa para o par sobreponer/sobrepor (II-II)
+[!] Non hai persoa para o par sobreponer/sobrepor (EI-EI)
+[!] Non hai persoa para o par sobreponer/sobrepor (FI-FI)
+[!] Non hai persoa para o par sobreponer/sobrepor (TI-TI)
+[!] Non hai persoa para o par sobreponer/sobrepor (PS-PS)
+[!] Non hai persoa para o par sobreponer/sobrepor (IS-IS)
+[!] Non hai persoa para o par sobreponer/sobrepor (FS-FS)
+[!] Non hai persoa para o par sobreponer/sobrepor (IA-IA)
+[!] Non hai persoa para o par sobreponer/sobrepor (IN-IN)
+[!] Non hai persoa para o par sobreponer/sobrepor (FN-FN)
+[!] Non hai persoa para o par sobreponer/sobrepor (FN-IP)
+[!] Falta o tempo verbal PI-PI+1PS para o par rehacer/refacer
+[!] Falta o tempo verbal PI-PI+2PS para o par rehacer/refacer
+[!] Falta o tempo verbal PI-PI+3PS para o par rehacer/refacer
+[!] Falta o tempo verbal PI-PI+1PP para o par rehacer/refacer
+[!] Falta o tempo verbal PI-PI+2PP para o par rehacer/refacer
+[!] Falta o tempo verbal PI-PI+3PP para o par rehacer/refacer
+[!] Falta o tempo verbal II-II+1PS para o par rehacer/refacer
+[!] Falta o tempo verbal II-II+2PS para o par rehacer/refacer
+[!] Falta o tempo verbal II-II+3PS para o par rehacer/refacer
+[!] Falta o tempo verbal II-II+1PP para o par rehacer/refacer
+[!] Falta o tempo verbal II-II+2PP para o par rehacer/refacer
+[!] Falta o tempo verbal II-II+3PP para o par rehacer/refacer
+[!] Falta o tempo verbal EI-EI+1PS para o par rehacer/refacer
+[!] Falta o tempo verbal EI-EI+2PS para o par rehacer/refacer
+[!] Falta o tempo verbal EI-EI+3PS para o par rehacer/refacer
+[!] Falta o tempo verbal EI-EI+1PP para o par rehacer/refacer
+[!] Falta o tempo verbal EI-EI+2PP para o par rehacer/refacer
+[!] Falta o tempo verbal EI-EI+3PP para o par rehacer/refacer
+[!] Falta o tempo verbal FI-FI+1PS para o par rehacer/refacer
+[!] Falta o tempo verbal FI-FI+2PS para o par rehacer/refacer
+[!] Falta o tempo verbal FI-FI+3PS para o par rehacer/refacer
+[!] Falta o tempo verbal FI-FI+1PP para o par rehacer/refacer
+[!] Falta o tempo verbal FI-FI+2PP para o par rehacer/refacer
+[!] Falta o tempo verbal FI-FI+3PP para o par rehacer/refacer
+[!] Falta o tempo verbal TI-TI+1PS para o par rehacer/refacer
+[!] Falta o tempo verbal TI-TI+2PS para o par rehacer/refacer
+[!] Falta o tempo verbal TI-TI+3PS para o par rehacer/refacer
+[!] Falta o tempo verbal TI-TI+1PP para o par rehacer/refacer
+[!] Falta o tempo verbal TI-TI+2PP para o par rehacer/refacer
+[!] Falta o tempo verbal TI-TI+3PP para o par rehacer/refacer
+[!] Falta o tempo verbal PS-PS+1PS para o par rehacer/refacer
+[!] Falta o tempo verbal PS-PS+2PS para o par rehacer/refacer
+[!] Falta o tempo verbal PS-PS+3PS para o par rehacer/refacer
+[!] Falta o tempo verbal PS-PS+1PP para o par rehacer/refacer
+[!] Falta o tempo verbal PS-PS+2PP para o par rehacer/refacer
+[!] Falta o tempo verbal PS-PS+3PP para o par rehacer/refacer
+[!] Falta o tempo verbal IS-IS+1PS para o par rehacer/refacer
+[!] Falta o tempo verbal IS-IS+2PS para o par rehacer/refacer
+[!] Falta o tempo verbal IS-IS+3PS para o par rehacer/refacer
+[!] Falta o tempo verbal IS-IS+1PP para o par rehacer/refacer
+[!] Falta o tempo verbal IS-IS+2PP para o par rehacer/refacer
+[!] Falta o tempo verbal IS-IS+3PP para o par rehacer/refacer
+[!] Falta o tempo verbal FS-FS+1PS para o par rehacer/refacer
+[!] Falta o tempo verbal FS-FS+2PS para o par rehacer/refacer
+[!] Falta o tempo verbal FS-FS+3PS para o par rehacer/refacer
+[!] Falta o tempo verbal FS-FS+1PP para o par rehacer/refacer
+[!] Falta o tempo verbal FS-FS+2PP para o par rehacer/refacer
+[!] Falta o tempo verbal FS-FS+3PP para o par rehacer/refacer
+[!] Falta o tempo verbal IA-IA+2PS para o par rehacer/refacer
+[!] Falta o tempo verbal IA-IA+2PP para o par rehacer/refacer
+[!] Falta o tempo verbal IN-IN+2PS para o par rehacer/refacer
+[!] Falta o tempo verbal IN-IN+1PP para o par rehacer/refacer
+[!] Falta o tempo verbal IN-IN+2PP para o par rehacer/refacer
+[!] Falta o tempo verbal FN-FN+Inf para o par rehacer/refacer
+[!] Falta o tempo verbal FN-FN+Par para o par rehacer/refacer
+[!] Falta o tempo verbal IA-IA+2PS para o par sobrevenir/sobrevir
+[!] Falta o tempo verbal IA-IA+2PP para o par sobrevenir/sobrevir
+[!] Falta o tempo verbal IN-IN+2PS para o par sobrevenir/sobrevir
+[!] Falta o tempo verbal IN-IN+1PP para o par sobrevenir/sobrevir
+[!] Falta o tempo verbal IN-IN+2PP para o par sobrevenir/sobrevir
+[!] Falta o tempo verbal PI-PI+1PS para o par abolir/abolir
+[!] Falta o tempo verbal PI-PI+3PS para o par abolir/abolir
+[!] Falta o tempo verbal PI-PI+3PP para o par abolir/abolir
+[!] Falta o tempo verbal PS-PS+1PS para o par abolir/abolir
+[!] Falta o tempo verbal PS-PS+2PS para o par abolir/abolir
+[!] Falta o tempo verbal PS-PS+3PS para o par abolir/abolir
+[!] Falta o tempo verbal PS-PS+1PP para o par abolir/abolir
+[!] Falta o tempo verbal PS-PS+2PP para o par abolir/abolir
+[!] Falta o tempo verbal PS-PS+3PP para o par abolir/abolir
+[!] Falta o tempo verbal IN-IN+2PS para o par abolir/abolir
+[!] Falta o tempo verbal IN-IN+1PP para o par abolir/abolir
+[!] Falta o tempo verbal IN-IN+2PP para o par abolir/abolir
