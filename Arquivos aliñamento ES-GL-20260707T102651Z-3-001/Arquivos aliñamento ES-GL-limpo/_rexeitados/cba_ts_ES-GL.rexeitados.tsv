@@ -1,0 +1,235 @@
+line_number	reason	raw_line
+61564	empty_field	he		IA	2PS
+61565	empty_field	habed		IA	2PP
+61566	empty_field	hayas		IN	2PS
+61567	empty_field	hayamos		IN	1PP
+61568	empty_field	hayáis		IN	2PP
+73903	empty_field	ocurro		PI	1PS
+73904	empty_field	ocurres		PI	2PS
+73906	empty_field	ocurrimos		PI	1PP
+73907	empty_field	ocurrís		PI	2PP
+73909	empty_field	ocurría		II	1PS
+73910	empty_field	ocurrías		II	2PS
+73912	empty_field	ocurríamos		II	1PP
+73913	empty_field	ocurríais		II	2PP
+73915	empty_field	ocurrí		EI	1PS
+73916	empty_field	ocurriste		EI	2PS
+73918	empty_field	ocurrimos		EI	1PP
+73919	empty_field	ocurristeis		EI	2PP
+73921	empty_field	ocurriré		FI	1PS
+73922	empty_field	ocurrirás		FI	2PS
+73924	empty_field	ocurriremos		FI	1PP
+73925	empty_field	ocurriréis		FI	2PP
+73927	empty_field	ocurriría		TI	1PS
+73928	empty_field	ocurrirías		TI	2PS
+73930	empty_field	ocurriríamos		TI	1PP
+73931	empty_field	ocurriríais		TI	2PP
+73933	empty_field	ocurra		PS	1PS
+73934	empty_field	ocurras		PS	2PS
+73936	empty_field	ocurramos		PS	1PP
+73937	empty_field	ocurráis		PS	2PP
+73939	empty_field	ocurriera		IS	1PS
+73940	empty_field	ocurriese		IS	1PS
+73941	empty_field	ocurrieras		IS	2PS
+73942	empty_field	ocurrieses		IS	2PS
+73945	empty_field	ocurriéramos		IS	1PP
+73946	empty_field	ocurriésemos		IS	1PP
+73947	empty_field	ocurrierais		IS	2PP
+73948	empty_field	ocurrieseis		IS	2PP
+73951	empty_field	ocurriere		FS	1PS
+73952	empty_field	ocurrieres		FS	2PS
+73954	empty_field	ocurriéremos		FS	1PP
+73955	empty_field	ocurriereis		FS	2PP
+73960	empty_field	ocurrir		FN(Inf)-IP	1PS
+73961	empty_field	ocurrir		FN(Inf)-IP	2PS
+73963	empty_field	ocurrir		FN(Inf)-IP	1PP
+73964	empty_field	ocurrir		FN(Inf)-IP	2PP
+122170	empty_field			PI	1PS
+122171	empty_field			PI	2PS
+122173	empty_field			PI	1PP
+122174	empty_field			PI	2PP
+122176	empty_field	acontecía		II	1PS
+122177	empty_field			II	2PS
+122179	empty_field			II	1PP
+122180	empty_field			II	2PP
+122182	empty_field			EI	1PS
+122183	empty_field			EI	2PS
+122185	empty_field			EI	1PP
+122186	empty_field			EI	2PP
+122188	empty_field			FI	1PS
+122189	empty_field			FI	2PS
+122191	empty_field			FI	1PP
+122192	empty_field			FI	2PP
+122194	empty_field	acontecería		TI	1PS
+122195	empty_field			TI	2PS
+122197	empty_field			TI	1PP
+122198	empty_field			TI	2PP
+122200	empty_field	acontezca		PS	1PS
+122201	empty_field			PS	2PS
+122203	empty_field			PS	1PP
+122204	empty_field			PS	2PP
+122206	empty_field	aconteciera		IS	1PS
+122207	empty_field	aconteciese		IS	1PS
+122208	empty_field			IS	2PS
+122211	empty_field			IS	1PP
+122212	empty_field			IS	2PP
+122215	empty_field	aconteciere		FS	1PS
+122216	empty_field			FS	2PS
+122218	empty_field			FS	1PP
+122219	empty_field			FS	2PP
+122224	empty_field	acontecer		FN(Inf)-IP	1PS
+122225	empty_field	acontecer		FN(Inf)-IP	2PS
+122227	empty_field	acontecer		FN(Inf)-IP	1PP
+122228	empty_field	acontecer		FN(Inf)-IP	2PP
+126174	empty_field			PI	1PS
+126175	empty_field			PI	2PS
+126177	empty_field			PI	1PP
+126178	empty_field			PI	2PP
+126180	empty_field			II	1PS
+126181	empty_field			II	2PS
+126183	empty_field			II	1PP
+126184	empty_field			II	2PP
+126186	empty_field			EI	1PS
+126187	empty_field			EI	2PS
+126189	empty_field			EI	1PP
+126190	empty_field			EI	2PP
+126192	empty_field			FI	1PS
+126193	empty_field			FI	2PS
+126195	empty_field			FI	1PP
+126196	empty_field			FI	2PP
+126198	empty_field			TI	1PS
+126199	empty_field			TI	2PS
+126201	empty_field			TI	1PP
+126202	empty_field			TI	2PP
+126204	empty_field			PS	1PS
+126205	empty_field			PS	2PS
+126207	empty_field			PS	1PP
+126208	empty_field			PS	2PP
+126210	empty_field			IS	1PS
+126211	empty_field			IS	2PS
+126214	empty_field			IS	1PP
+126215	empty_field			IS	2PP
+126218	empty_field			FS	1PS
+126219	empty_field			FS	2PS
+126221	empty_field			FS	1PP
+126222	empty_field			FS	2PP
+126227	empty_field	competer		FN(Inf)-IP	1PS
+126228	empty_field	competer		FN(Inf)-IP	2PS
+126230	empty_field	competer		FN(Inf)-IP	1PP
+126231	empty_field	competer		FN(Inf)-IP	2PP
+127663	empty_field			PI	1PS
+127664	empty_field			PI	2PS
+127666	empty_field			PI	1PP
+127667	empty_field			PI	2PP
+127669	empty_field			II	1PS
+127670	empty_field			II	2PS
+127672	empty_field			II	1PP
+127673	empty_field			II	2PP
+127675	empty_field			EI	1PS
+127676	empty_field			EI	2PS
+127678	empty_field			EI	1PP
+127679	empty_field			EI	2PP
+127681	empty_field			FI	1PS
+127682	empty_field			FI	2PS
+127684	empty_field			FI	1PP
+127685	empty_field			FI	2PP
+127687	empty_field			TI	1PS
+127688	empty_field			TI	2PS
+127690	empty_field			TI	1PP
+127691	empty_field			TI	2PP
+127693	empty_field			PS	1PS
+127694	empty_field			PS	2PS
+127696	empty_field			PS	1PP
+127697	empty_field			PS	2PP
+127699	empty_field			IS	1PS
+127700	empty_field			IS	2PS
+127703	empty_field			IS	1PP
+127704	empty_field			IS	2PP
+127707	empty_field			FS	1PS
+127708	empty_field			FS	2PS
+127710	empty_field			FS	1PP
+127711	empty_field			FS	2PP
+127716	empty_field	acaecer		FN(Inf)-IP	1PS
+127717	empty_field	acaecer		FN(Inf)-IP	2PS
+127719	empty_field	acaecer		FN(Inf)-IP	1PP
+127720	empty_field	acaecer		FN(Inf)-IP	2PP
+129696	empty_field			PI	1PS
+129697	empty_field			PI	2PS
+129699	empty_field			PI	1PP
+129700	empty_field			PI	2PP
+129702	empty_field			II	1PS
+129703	empty_field			II	2PS
+129705	empty_field			II	1PP
+129706	empty_field			II	2PP
+129708	empty_field			EI	1PS
+129709	empty_field			EI	2PS
+129711	empty_field			EI	1PP
+129712	empty_field			EI	2PP
+129714	empty_field			FI	1PS
+129715	empty_field			FI	2PS
+129717	empty_field			FI	1PP
+129718	empty_field			FI	2PP
+129720	empty_field			TI	1PS
+129721	empty_field			TI	2PS
+129723	empty_field			TI	1PP
+129724	empty_field			TI	2PP
+129726	empty_field			PS	1PS
+129727	empty_field			PS	2PS
+129729	empty_field			PS	1PP
+129730	empty_field			PS	2PP
+129732	empty_field			IS	1PS
+129733	empty_field			IS	2PS
+129736	empty_field			IS	1PP
+129737	empty_field			IS	2PP
+129740	empty_field			FS	1PS
+129741	empty_field			FS	2PS
+129743	empty_field			FS	1PP
+129744	empty_field			FS	2PP
+129749	empty_field	atañer		FN(Inf)-IP	1PS
+129750	empty_field	atañer		FN(Inf)-IP	2PS
+129752	empty_field	atañer		FN(Inf)-IP	1PP
+129753	empty_field	atañer		FN(Inf)-IP	2PP
+175107	empty_field	sobrevengo		PI	1PS
+175108	empty_field	sobrevienes		PI	2PS
+175110	empty_field	sobrevenimos		PI	1PP
+175111	empty_field	sobrevenís		PI	2PP
+175112	empty_field	sobrevenís		PI	2PP
+175114	empty_field	sobrevenía		II	1PS
+175115	empty_field	sobrevenías		II	2PS
+175117	empty_field	sobreveníamos		II	1PP
+175118	empty_field	sobreveníais		II	2PP
+175120	empty_field	sobrevine		EI	1PS
+175121	empty_field	sobreviniste		EI	2PS
+175123	empty_field	sobrevinimos		EI	1PP
+175124	empty_field	sobrevinisteis		EI	2PP
+175126	empty_field	sobrevendré		FI	1PS
+175127	empty_field	sobrevendrás		FI	2PS
+175129	empty_field	sobrevendremos		FI	1PP
+175130	empty_field	sobrevendréis		FI	2PP
+175132	empty_field	sobrevendría		TI	1PS
+175133	empty_field	sobrevendrías		TI	2PS
+175135	empty_field	sobrevendríamos		TI	1PP
+175136	empty_field	sobrevendríais		TI	2PP
+175138	empty_field	sobrevenga		PS	1PS
+175139	empty_field	sobrevengas		PS	2PS
+175141	empty_field	sobrevengamos		PS	1PP
+175142	empty_field	sobrevengáis		PS	2PP
+175144	empty_field	sobreviniera		IS	1PS
+175145	empty_field	sobreviniese		IS	1PS
+175146	empty_field	sobrevinieras		IS	2PS
+175147	empty_field	sobrevinieses		IS	2PS
+175150	empty_field	sobreviniéramos		IS	1PP
+175151	empty_field	sobreviniésemos		IS	1PP
+175152	empty_field	sobrevinierais		IS	2PP
+175153	empty_field	sobrevinieseis		IS	2PP
+175156	empty_field	sobreviniere		FS	1PS
+175157	empty_field	sobrevinieres		FS	2PS
+175159	empty_field	sobreviniéremos		FS	1PP
+175160	empty_field	sobreviniereis		FS	2PP
+175166	empty_field	sobrevenir		FN(Inf)-IP	1PS
+175167	empty_field	sobrevenir		FN(Inf)-IP	2PS
+175169	empty_field	sobrevenir		FN(Inf)-IP	1PP
+175170	empty_field	sobrevenir		FN(Inf)-IP	2PP
+176406	empty_field			PI	2PS
+176407	empty_field		abolimos	PI	1PP
+176451	empty_field			IA	2PS

@@ -36,8 +36,14 @@ DEFAULT_OUTPUT = "formas_verbais_es_gl.txt"
 DEFAULT_LOG = "formas_verbais_es_gl.log"
 DEFAULT_LINGUAKIT = str(Path("Linguakit") / "linguakit.bat")
 DEFAULT_APERTIUM_DIX = str(Path("apertium-spa-glg") / "apertium-spa-glg.spa-glg.dix")
+MANUAL_VERIFIED_GL_TO_ES = {
+    "abafallar": ["despreciar"],
+    "abanar": ["abanicar"],
+    "acorrer": ["socorrer"],
+}
 
 
+# Esto es un mapeo aproximado de personas entre ES y GL. No es perfecto, pero sirve para alinear la mayoría de formas.
 FINITE_PERSON_PAIRS = [
     ("Yo", "Eu"),
     ("Tu", "Ti"),
@@ -47,12 +53,14 @@ FINITE_PERSON_PAIRS = [
     ("Ellos(as)/Ustedes", "Eles(as)/Vostedes"),
 ]
 
+# Esto es un mapeo aproximado de personas entre ES y GL para formas nominales (infinitivo, gerundio, participio). No es perfecto, pero sirve para alinear la mayoría de formas.
 NOMINAL_PERSON_PAIRS = [
     ("Infinitivo", "Infinitivo"),
     ("Gerundio", "Xerundio"),
     ("Participio", "Participio"),
 ]
 
+# Esto es un mapeo aproximado de personas entre ES y GL para alinear infinitivo con conjugado. No es perfecto, pero sirve para alinear la mayoría de formas.
 INFINITIVO_CONXUGADO_PAIRS = [
     ("Infinitivo", "Eu"),
     ("Infinitivo", "Ti"),
@@ -62,6 +70,7 @@ INFINITIVO_CONXUGADO_PAIRS = [
     ("Infinitivo", "Eles(as)/Vostedes"),
 ]
 
+# Esto es un mapeo aproximado de tiempos simples entre ES y GL. No es perfecto, pero sirve para alinear la mayoría de formas.
 SIMPLE_TENSE_PAIRS = [
     ("PI", "PI"),
     ("II", "II"),
@@ -89,6 +98,7 @@ COMPOUND_TENSE_PAIRS = [
     ("FNC", "FN"),
 ]
 
+# Diccionario de códigos de persona para salida final.
 PERSON_CODE = {
     "eu": "1PS",
     "yo": "1PS",
@@ -115,12 +125,25 @@ class VerbPair:
     gl: str
 
 
+@dataclass
+class GlOnlyCoverage:
+    lemma: str
+    status: str
+    detail: str
+
+
 def normalize_text(text: str) -> str:
+    # Normaliza texto para comparaciones, eliminando acentos y espacios iniciales/finales.
     text = text.strip()
+    # Reemplaza acentos agudos por sus equivalentes sin acento.
     if not text:
+        # Evita errores de normalización con cadenas vacías.
         return text
+    # Reemplaza caracteres acentuados específicos que no se manejan bien con unicodedata.
     text = text.replace("É", "E").replace("é", "e")
+    # Reemplaza caracteres acentuados específicos que no se manejan bien con unicodedata.
     text = text.replace("Ú", "U").replace("ú", "u")
+    # Elimina cualquier otro acento que pueda no ser manejado correctamente. Detalle de lo que hace la instrucción: descompone los caracteres Unicode en sus formas canónicas (NFKD), y luego filtra los caracteres que son marcas de acento (combining characters), dejando solo los caracteres base.
     text = "".join(
         ch for ch in unicodedata.normalize("NFKD", text) if not unicodedata.combining(ch)
     )
@@ -245,6 +268,95 @@ def export_pairs_tsv(path: Path, pairs: Sequence[VerbPair]) -> None:
     with path.open("w", encoding="utf-8", newline="") as f:
         for p in pairs:
             f.write(f"{p.es}\t{p.gl}\tV\n")
+
+
+def load_word_list(path: Path) -> List[str]:
+    if not path.exists():
+        raise FileNotFoundError(f"No existe la lista de verbos GL: {path}")
+    seen = set()
+    items: List[str] = []
+    for raw_line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+        word = raw_line.strip()
+        if not word or word in seen:
+            continue
+        seen.add(word)
+        items.append(word)
+    return items
+
+
+def extract_apertium_gl_to_es_map(dix_path: Path) -> Dict[str, List[str]]:
+    if not dix_path.exists():
+        raise FileNotFoundError(f"No existe el diccionario Apertium: {dix_path}")
+
+    tree = ET.parse(dix_path)
+    root = tree.getroot()
+    result: Dict[str, List[str]] = {}
+
+    for entry in root.findall(".//e"):
+        if not has_verb_tag(entry):
+            continue
+        p = entry.find("p")
+        if p is None:
+            continue
+        l = p.find("l")
+        r = p.find("r")
+        if l is None or r is None:
+            continue
+
+        es = flatten_xml_text(l)
+        gl = flatten_xml_text(r)
+        if not es or not gl or " " in es or " " in gl:
+            continue
+
+        bucket = result.setdefault(gl, [])
+        if es not in bucket:
+            bucket.append(es)
+
+    return result
+
+
+def augment_pairs_with_gl_list(
+    pairs: Sequence[VerbPair],
+    lista_gl_words: Sequence[str],
+    dix_path: Path,
+) -> Tuple[List[VerbPair], List[GlOnlyCoverage]]:
+    pair_keys = {(pair.es.lower(), pair.gl.lower()) for pair in pairs}
+    pair_gl_set = {pair.gl for pair in pairs}
+    gl_to_es = extract_apertium_gl_to_es_map(dix_path)
+    augmented = list(pairs)
+    coverage: List[GlOnlyCoverage] = []
+
+    for gl_lemma in lista_gl_words:
+        if gl_lemma in pair_gl_set:
+            coverage.append(GlOnlyCoverage(lemma=gl_lemma, status="already_paired", detail="ya estaba en verbos-es-gl"))
+            continue
+
+        es_candidates = list(gl_to_es.get(gl_lemma, []))
+        source = "apertium"
+        if not es_candidates and gl_lemma in MANUAL_VERIFIED_GL_TO_ES:
+            es_candidates = MANUAL_VERIFIED_GL_TO_ES[gl_lemma]
+            source = "manual_verified"
+
+        if not es_candidates:
+            coverage.append(GlOnlyCoverage(lemma=gl_lemma, status="unresolved", detail="sin equivalente ES seguro"))
+            continue
+
+        added_here = 0
+        for es in es_candidates:
+            key = (es.lower(), gl_lemma.lower())
+            if key in pair_keys:
+                continue
+            pair_keys.add(key)
+            augmented.append(VerbPair(es=es, gl=gl_lemma))
+            added_here += 1
+
+        if added_here:
+            coverage.append(GlOnlyCoverage(lemma=gl_lemma, status="added", detail=f"{source}:{','.join(es_candidates)}"))
+        else:
+            coverage.append(GlOnlyCoverage(lemma=gl_lemma, status="already_paired", detail="equivalente ya presente"))
+
+    augmented.sort(key=lambda p: (normalize_text(p.es).lower(), normalize_text(p.gl).lower()))
+    return augmented, coverage
 
 
 def run_linguakit_conj(
@@ -455,6 +567,26 @@ def write_outputs(output_path: Path, log_path: Path, rows: List[Tuple[str, str, 
                 f.write(f"{line}\n")
 
 
+def is_conjugated_verb(conj_json: Dict) -> bool:
+    if int(conj_json.get("known", 1)) == 0:
+        return False
+    conjugations = conj_json.get("conjugations", [])
+    if not conjugations:
+        return False
+    blocks = conjugations[0].get("conjugation", [])
+    if not blocks:
+        return False
+    first_tense = str(blocks[0].get("tense", "")).strip()
+    return first_tense and first_tense != "None"
+
+
+def write_gl_coverage_report(report_path: Path, coverage: List[GlOnlyCoverage]) -> None:
+    with report_path.open("w", encoding="utf-8", newline="") as handle:
+        handle.write("lemma\tstatus\tdetail\n")
+        for item in coverage:
+            handle.write(f"{item.lemma}\t{item.status}\t{item.detail}\n")
+
+
 def resolve_linguakit_cmd(path_arg: str) -> str:
     cmd_path = Path(path_arg)
     if cmd_path.exists():
@@ -525,6 +657,16 @@ def main() -> int:
         default=DEFAULT_LINGUAKIT,
         help="Ruta a linguakit.bat (Windows) o linguakit (Linux/macOS)",
     )
+    parser.add_argument(
+        "--lista-verbos-gl",
+        default="",
+        help="Lista auxiliar de lemas gallegos para ampliar pares ES-GL con respaldo bilingue",
+    )
+    parser.add_argument(
+        "--gl-coverage-report",
+        default="verbos_gl_cobertura.tsv",
+        help="Informe de cobertura de listaVerbos frente a pares ES-GL ampliados",
+    )
     args = parser.parse_args()
 
     input_path = Path(args.input)
@@ -552,8 +694,16 @@ def main() -> int:
     rows: List[Tuple[str, str, str, str]] = []
     logs: List[str] = []
     sub_env = build_subprocess_env()
-
     conj_cache: Dict[Tuple[str, str], Dict] = {}
+    lista_gl_words: List[str] = []
+    if args.lista_verbos_gl:
+        lista_gl_words = load_word_list(Path(args.lista_verbos_gl))
+        pairs, gl_coverage = augment_pairs_with_gl_list(
+            pairs,
+            lista_gl_words,
+            Path(args.apertium_dix),
+        )
+        write_gl_coverage_report(Path(args.gl_coverage_report), gl_coverage)
 
     # Preconjuga en paralelo para reducir drásticamente el tiempo total.
     unique_tasks: List[Tuple[str, str]] = []
@@ -568,7 +718,6 @@ def main() -> int:
     # Necesario para tiempos compuestos.
     if ("ter", "gl") not in seen_tasks:
         unique_tasks.append(("ter", "gl"))
-
     def _conj_job(verb: str, lang: str) -> Tuple[str, str, Optional[Dict], Optional[str]]:
         last_err = ""
         for attempt in range(3):
@@ -662,6 +811,8 @@ def main() -> int:
     print(f"OK: {len(rows)} alineaciones generadas (antes de deduplicar)")
     print(f"Salida: {output_path}")
     print(f"Log: {log_path}")
+    if args.lista_verbos_gl:
+        print(f"Informe cobertura GL: {args.gl_coverage_report}")
     return 0
 
 

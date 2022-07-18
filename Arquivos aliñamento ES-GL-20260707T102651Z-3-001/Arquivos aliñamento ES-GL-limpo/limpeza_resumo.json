@@ -1,0 +1,55 @@
+{
+  "source_root": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL",
+  "output_root": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL-limpo",
+  "files": [
+    {
+      "source": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL\\cba_ES-GL.txt",
+      "cleaned": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL-limpo\\cba_ES-GL.txt",
+      "rejected": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL-limpo\\_rexeitados\\cba_ES-GL.rexeitados.tsv",
+      "written_rows": 248741,
+      "rejected_rows": 330
+    },
+    {
+      "source": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL\\cba_pro_ES-GL.txt",
+      "cleaned": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL-limpo\\cba_pro_ES-GL.txt",
+      "rejected": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL-limpo\\_rexeitados\\cba_pro_ES-GL.rexeitados.tsv",
+      "written_rows": 247005,
+      "rejected_rows": 204
+    },
+    {
+      "source": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL\\cba_ts_ES-GL.txt",
+      "cleaned": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL-limpo\\cba_ts_ES-GL.txt",
+      "rejected": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL-limpo\\_rexeitados\\cba_ts_ES-GL.rexeitados.tsv",
+      "written_rows": 179831,
+      "rejected_rows": 234
+    },
+    {
+      "source": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL\\cba_ts_pro_ES-GL.txt",
+      "cleaned": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL-limpo\\cba_ts_pro_ES-GL.txt",
+      "rejected": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL-limpo\\_rexeitados\\cba_ts_pro_ES-GL.rexeitados.tsv",
+      "written_rows": 178635,
+      "rejected_rows": 108
+    },
+    {
+      "source": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL\\listaVerbos.txt",
+      "cleaned": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL-limpo\\listaVerbos.txt",
+      "rejected": null,
+      "written_rows": 6728,
+      "rejected_rows": 0
+    },
+    {
+      "source": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL\\pal_conf.txt",
+      "cleaned": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL-limpo\\pal_conf.txt",
+      "rejected": null,
+      "written_rows": 187,
+      "rejected_rows": 0
+    },
+    {
+      "source": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL\\verbos-es-gl.txt",
+      "cleaned": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\relacion_formas_verbais_galego_castelan\\Arquivos aliñamento ES-GL-20260707T102651Z-3-001\\Arquivos aliñamento ES-GL-limpo\\verbos-es-gl.txt",
+      "rejected": null,
+      "written_rows": 2845,
+      "rejected_rows": 0
+    }
+  ]
+}
