@@ -2,6 +2,14 @@
 
 Script para xerar un corpus aliñado de formas verbais entre castelán (ES) e galego (GL), incluíndo tempos simples e compostos.
 
+## Contexto do traballo
+
+Esta tarefa foi asignada ao autor durante o seu contrato no Proxecto Nos (abril de 2022 a abril de 2023) e non chegou a ser finalizada nese período.
+
+Segundo indicación do autor deste repositorio, o traballo foi rematado por Ainhoa Vivel Couso.
+
+Este repositorio presenta outra forma de implementación do mesmo obxectivo e engade unha interface web en Angular para facilitar a navegación dos verbos relacionados.
+
 ## Que fai
 
 - Le pares de infinitivos ES-GL desde un TSV ou desde un dicionario bilingue de Apertium.
@@ -61,6 +69,30 @@ python .\copia_de_corpus_verbais_aliñados.py \
   --conj-timeout 8 \
   --workers 12
 ```
+
+## Interface web (Angular)
+
+Creouse unha interface web moderna e responsive en tons azuis dentro de `web-angular/` para navegar pares ES-GL e consultar formas aliñadas.
+
+### Execución local (sen Docker)
+
+```powershell
+cd .\web-angular
+npm install
+npm start
+```
+
+Logo abre: `http://localhost:4200`
+
+### Execución con Docker
+
+Desde o raíz do proxecto:
+
+```powershell
+docker compose up --build
+```
+
+Logo abre: `http://localhost:8080`
 
 ## Que se sobe a GitHub
 
