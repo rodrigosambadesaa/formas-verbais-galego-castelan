@@ -13,6 +13,8 @@ interface Alignment {
   gl: string;
   tense: string;
   person: string;
+  pairEs: string;
+  pairGl: string;
 }
 
 @Component({
@@ -44,6 +46,7 @@ export class AppComponent implements OnInit {
   errorMessage = '';
 
   readonly maxRows = 300;
+  readonly maxQueryLength = 120;
 
   constructor(private readonly http: HttpClient) { }
 
@@ -111,6 +114,9 @@ export class AppComponent implements OnInit {
 
   private parseAlignments(raw: string): Alignment[] {
     const out: Alignment[] = [];
+    let currentPairEs = '';
+    let currentPairGl = '';
+
     for (const line of raw.split(/\r?\n/)) {
       if (!line.trim()) {
         continue;
@@ -119,11 +125,23 @@ export class AppComponent implements OnInit {
       if (parts.length < 4) {
         continue;
       }
+      const tense = parts[2].trim();
+      const person = parts[3].trim();
+      const formEs = parts[0].trim();
+      const formGl = parts[1].trim();
+
+      if (tense === 'FN-FN' && person === 'Inf') {
+        currentPairEs = formEs;
+        currentPairGl = formGl;
+      }
+
       out.push({
-        es: parts[0].trim(),
-        gl: parts[1].trim(),
-        tense: parts[2].trim(),
-        person: parts[3].trim()
+        es: formEs,
+        gl: formGl,
+        tense,
+        person,
+        pairEs: currentPairEs,
+        pairGl: currentPairGl
       });
     }
     return out;
@@ -133,8 +151,18 @@ export class AppComponent implements OnInit {
     return [...new Set(values)].sort((a, b) => a.localeCompare(b));
   }
 
+  private normalizeQuery(raw: string): string {
+    return raw
+      .replace(/[\u0000-\u001F\u007F]/g, ' ')
+      .slice(0, this.maxQueryLength)
+      .trim()
+      .toLowerCase();
+  }
+
   onPairSearchChange(): void {
-    const q = this.pairSearch.trim().toLowerCase();
+    const q = this.normalizeQuery(this.pairSearch);
+    this.pairSearch = q;
+
     if (!q) {
       this.filteredPairs = [...this.pairs];
       return;
@@ -146,7 +174,6 @@ export class AppComponent implements OnInit {
 
   choosePair(pair: VerbPair): void {
     this.selectedPair = pair;
-    this.alignmentSearch = `${pair.es} ${pair.gl}`;
     this.applyAlignmentFilters();
   }
 
@@ -157,7 +184,10 @@ export class AppComponent implements OnInit {
   }
 
   applyAlignmentFilters(): void {
-    const query = this.alignmentSearch.trim().toLowerCase();
+    const query = this.normalizeQuery(this.alignmentSearch);
+    this.alignmentSearch = query;
+    const terms = query ? query.split(/\s+/).filter(Boolean) : [];
+
     this.filteredAlignments = this.alignments.filter((row) => {
       if (this.selectedTense !== 'ALL' && row.tense !== this.selectedTense) {
         return false;
@@ -167,18 +197,29 @@ export class AppComponent implements OnInit {
       }
       if (this.selectedPair) {
         const matchPair =
-          row.es.toLowerCase().includes(this.selectedPair.es.toLowerCase()) ||
-          row.gl.toLowerCase().includes(this.selectedPair.gl.toLowerCase());
+          row.pairEs === this.selectedPair.es &&
+          row.pairGl === this.selectedPair.gl;
         if (!matchPair) {
           return false;
         }
       }
-      if (!query) {
+
+      if (!terms.length) {
         return true;
       }
-      const blob = `${row.es} ${row.gl} ${row.tense} ${row.person}`.toLowerCase();
-      return blob.includes(query);
+
+      const blob = `${row.es} ${row.gl} ${row.tense} ${row.person} ${row.pairEs} ${row.pairGl}`
+        .toLowerCase();
+      return terms.every((term) => blob.includes(term));
     });
+  }
+
+  trackPair(_index: number, pair: VerbPair): string {
+    return `${pair.es}|${pair.gl}`;
+  }
+
+  trackAlignment(_index: number, row: Alignment): string {
+    return `${row.pairEs}|${row.pairGl}|${row.es}|${row.gl}|${row.tense}|${row.person}`;
   }
 
   get visibleAlignments(): Alignment[] {
