@@ -1,0 +1,3 @@
+hablar	falar	V
+comer	comer	V
+vivir	vivir	V

@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.venv/
+venv/
+env/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local cloned dependencies (do not vendor huge upstream repos)
+Linguakit/
+apertium-spa-glg/
+
+# Generated corpora and logs
+formas_verbais_es_gl*.txt
+formas_verbais_es_gl*.log
+verbos-es-gl-completo.txt
+
+# Temporary / local debug files
+_inspect.py
