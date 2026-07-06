@@ -54,6 +54,11 @@ p {
     color: var(--slate-300);
 }
 
+.hero__hint {
+    margin-bottom: 0;
+    color: #bfdbfe;
+}
+
 .hero__stats {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -117,7 +122,7 @@ p {
 
 .controls--grid {
     display: grid;
-    grid-template-columns: 1.8fr 1fr 1fr;
+    grid-template-columns: minmax(220px, 1.8fr) minmax(150px, 1fr) minmax(150px, 1fr) auto;
 }
 
 input,
@@ -143,6 +148,12 @@ button:disabled {
     cursor: not-allowed;
 }
 
+.button--secondary {
+    background: rgba(15, 26, 47, 0.92);
+    border-color: rgba(59, 130, 246, 0.45);
+    white-space: nowrap;
+}
+
 .status {
     color: var(--slate-300);
     margin-top: 0.8rem;
@@ -150,6 +161,10 @@ button:disabled {
 
 .status--error {
     color: #fca5a5;
+}
+
+.status--info {
+    color: #93c5fd;
 }
 
 .pair-list {

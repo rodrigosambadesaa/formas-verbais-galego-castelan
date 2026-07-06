@@ -94,6 +94,13 @@ docker compose up --build
 
 Logo abre: `http://localhost:8080`
 
+O servizo inclúe un `healthcheck` HTTP para validar que Nginx está servindo a aplicación estática correctamente. Para
+comprobar o estado:
+
+```powershell
+docker compose ps
+```
+
 ## Que se sobe a GitHub
 
 Este repositorio está preparado para subir:
