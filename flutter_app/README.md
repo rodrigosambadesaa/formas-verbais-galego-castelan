@@ -31,6 +31,33 @@ flutter pub get
 flutter run
 ```
 
+## Flutter Web con Docker
+
+También puedes compilar y servir la app web sin instalar Flutter localmente:
+
+```powershell
+cd ..
+docker compose up --build web-flutter
+```
+
+La app quedará disponible en `http://localhost:28181`.
+
+El `Dockerfile`:
+
+- habilita soporte web,
+- ejecuta `flutter create --platforms=web .` si faltan archivos de plataforma,
+- resuelve dependencias,
+- genera `build/web`,
+- sirve el resultado con Nginx.
+
+Antes de construir la imagen, ejecuta:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tool\sync_assets.ps1
+```
+
+para asegurarte de que `assets/data/` contiene los TSV necesarios.
+
 ## Datos
 
 La app espera estos ficheros dentro de `assets/data/`:
