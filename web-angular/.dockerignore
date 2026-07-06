@@ -1,7 +1,9 @@
 node_modules
+.angular
+coverage
 dist
 .git
-.vscode
+.gitignore
+npm-debug.log
 Dockerfile
 README.md
-*.log
