@@ -94,6 +94,36 @@ docker compose up --build
 
 Logo abre: `http://localhost:8080`
 
+O servizo inclúe un `healthcheck` HTTP para validar que Nginx está servindo a aplicación estática correctamente. Para
+comprobar o estado:
+
+```powershell
+docker compose ps
+```
+
+## Interface web alternativa (Flutter)
+
+Engadiuse tamén unha interface Flutter Web en `web-flutter/` para consultar os pares de infinitivos ES-GL cunha
+experiencia independente da implementación Angular.
+
+### Execución local
+
+```powershell
+cd .\web-flutter
+flutter pub get
+flutter run -d chrome
+```
+
+### Execución con Docker
+
+Desde o raíz do proxecto:
+
+```powershell
+docker compose up --build web-flutter
+```
+
+Logo abre: `http://localhost:8081`
+
 ## Que se sobe a GitHub
 
 Este repositorio está preparado para subir:
