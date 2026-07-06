@@ -1,0 +1,19 @@
+name: relacion_formas_verbais_flutter
+description: Cliente Flutter para explorar formas verbales ES-GL.
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/data/

@@ -1,14 +1,20 @@
 <main class="page">
     <section class="hero">
-        <div class="hero__badge">Corpus ES-GL</div>
-        <h1>Navegador de Verbos Relacionados</h1>
-        <p>
-            Explora pares de verbos castellano-galego y consulta las formas alineadas por tiempo y persona.
-        </p>
-        <p class="hero__hint">
-            Selecciona un infinitivo para acotar la tabla, combina filtros y revisa hasta {{ maxRows }} resultados por
-            vista para mantener la navegación fluida.
-        </p>
+        <div class="hero__intro">
+            <div>
+                <div class="hero__badge">Corpus ES-GL</div>
+                <h1>Buscador total de formas verbales</h1>
+                <p>
+                    Busca por infinitivos, formas conjugadas, tiempo o persona y ordena los resultados para localizar
+                    rápidamente cualquier relación castellano-gallego.
+                </p>
+            </div>
+            <div class="hero__callout">
+                <strong>Nuevo</strong>
+                <span>La caja de pares ya encuentra resultados aunque escribas una forma conjugada.</span>
+            </div>
+        </div>
+
         <div class="hero__stats">
             <article>
                 <strong>{{ pairs.length | number }}</strong>
@@ -20,22 +26,41 @@
             </article>
             <article>
                 <strong>{{ filteredAlignments.length | number }}</strong>
-                <span>Resultado filtro</span>
+                <span>Resultados activos</span>
             </article>
         </div>
     </section>
 
     <section class="layout">
         <aside class="panel panel--pairs">
-            <header>
-                <h2>Verbos relacionados</h2>
-                <small *ngIf="selectedPair">Activo: {{ selectedPair.es }} - {{ selectedPair.gl }}</small>
+            <header class="panel__header">
+                <div>
+                    <h2>Pares relacionados</h2>
+                    <small>{{ pairSearchSummary }}</small>
+                </div>
+                <span class="selection-pill" *ngIf="selectedPair">
+                    {{ selectedPair.es }} → {{ selectedPair.gl }}
+                </span>
             </header>
 
-            <div class="controls">
-                <input type="text" placeholder="Buscar infinitivo ES o GL" [(ngModel)]="pairSearch" maxlength="120"
-                    autocomplete="off" autocapitalize="off" spellcheck="false" (input)="onPairSearchChange()" />
-                <button type="button" (click)="clearPair()" [disabled]="!selectedPair">Limpiar selección</button>
+            <div class="controls controls--stack">
+                <input type="text" placeholder="Buscar infinitivo o cualquier forma ES/GL" [(ngModel)]="pairSearch"
+                    maxlength="120" autocomplete="off" autocapitalize="off" spellcheck="false"
+                    (input)="onPairSearchChange()" />
+
+                <div class="controls controls--inline">
+                    <select [(ngModel)]="pairSortField" (change)="onPairSortFieldChange()">
+                        <option value="es">Ordenar por ES</option>
+                        <option value="gl">Ordenar por GL</option>
+                        <option value="alignmentCount">Ordenar por n.º de formas</option>
+                    </select>
+
+                    <button type="button" class="button--secondary" (click)="togglePairSortDirection()">
+                        {{ getPairSortLabel() }}
+                    </button>
+
+                    <button type="button" (click)="clearPair()" [disabled]="!selectedPair">Limpiar selección</button>
+                </div>
             </div>
 
             <p class="status" *ngIf="loadingPairs">Cargando pares...</p>
@@ -43,10 +68,13 @@
 
             <ul class="pair-list" *ngIf="!loadingPairs">
                 <li *ngFor="let pair of filteredPairs; trackBy: trackPair" (click)="choosePair(pair)"
-                    [class.active]="selectedPair?.es === pair.es && selectedPair?.gl === pair.gl">
-                    <span class="es">{{ pair.es }}</span>
-                    <span class="arrow">→</span>
-                    <span class="gl">{{ pair.gl }}</span>
+                    [class.active]="selectedPair?.key === pair.key">
+                    <div class="pair-list__verbs">
+                        <span class="es">{{ pair.es }}</span>
+                        <span class="arrow">→</span>
+                        <span class="gl">{{ pair.gl }}</span>
+                    </div>
+                    <span class="pair-list__count">{{ pair.alignmentCount | number }} formas</span>
                 </li>
             </ul>
             <p class="status" *ngIf="!loadingPairs && !filteredPairs.length">
@@ -55,15 +83,23 @@
         </aside>
 
         <section class="panel panel--table">
-            <header>
-                <h2>Formas verbales alineadas</h2>
-                <small>Mostrando {{ visibleAlignments.length }} de {{ filteredAlignments.length }}</small>
+            <header class="panel__header panel__header--stack">
+                <div>
+                    <h2>Formas verbales alineadas</h2>
+                    <small>
+                        Mostrando {{ visibleAlignments.length | number }} de {{ filteredAlignments.length | number }}
+                        resultados
+                    </small>
+                </div>
+                <span class="status status--info">
+                    Orden {{ alignmentSortLabel }} por {{ alignmentSortField }}
+                </span>
             </header>
 
             <div class="controls controls--grid">
-                <input type="text" placeholder="Buscar por forma/tiempo/persona" [(ngModel)]="alignmentSearch"
-                    maxlength="120" autocomplete="off" autocapitalize="off" spellcheck="false"
-                    (input)="applyAlignmentFilters()" />
+                <input type="text" placeholder="Buscar forma, tiempo, persona o infinitivo"
+                    [(ngModel)]="alignmentSearch" maxlength="120" autocomplete="off" autocapitalize="off"
+                    spellcheck="false" (input)="applyAlignmentFilters()" />
 
                 <select [(ngModel)]="selectedTense" (change)="applyAlignmentFilters()">
                     <option value="ALL">Todos los tiempos</option>
@@ -82,7 +118,7 @@
 
             <p class="status" *ngIf="loadingAlignments">Cargando alineaciones...</p>
             <p class="status" *ngIf="!loadingAlignments && !alignments.length">
-                No se encontró assets/data/alineaciones_completas.tsv. Puedes copiarlo para habilitar esta vista
+                No se encontró `assets/data/alineaciones_completas.tsv`. Puedes copiarlo para habilitar la búsqueda
                 completa.
             </p>
             <p class="status" *ngIf="!loadingAlignments && alignments.length && !filteredAlignments.length">
@@ -97,14 +133,42 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Forma ES</th>
-                            <th>Forma GL</th>
-                            <th>Tiempo</th>
-                            <th>Persona</th>
+                            <th scope="col">
+                                <button type="button" class="table-sort" (click)="setAlignmentSort('pairEs')">
+                                    Infinitivo ES {{ getAlignmentHeaderLabel('pairEs') }}
+                                </button>
+                            </th>
+                            <th scope="col">
+                                <button type="button" class="table-sort" (click)="setAlignmentSort('pairGl')">
+                                    Infinitivo GL {{ getAlignmentHeaderLabel('pairGl') }}
+                                </button>
+                            </th>
+                            <th scope="col">
+                                <button type="button" class="table-sort" (click)="setAlignmentSort('es')">
+                                    Forma ES {{ getAlignmentHeaderLabel('es') }}
+                                </button>
+                            </th>
+                            <th scope="col">
+                                <button type="button" class="table-sort" (click)="setAlignmentSort('gl')">
+                                    Forma GL {{ getAlignmentHeaderLabel('gl') }}
+                                </button>
+                            </th>
+                            <th scope="col">
+                                <button type="button" class="table-sort" (click)="setAlignmentSort('tense')">
+                                    Tiempo {{ getAlignmentHeaderLabel('tense') }}
+                                </button>
+                            </th>
+                            <th scope="col">
+                                <button type="button" class="table-sort" (click)="setAlignmentSort('person')">
+                                    Persona {{ getAlignmentHeaderLabel('person') }}
+                                </button>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let row of visibleAlignments; trackBy: trackAlignment">
+                            <td data-label="Infinitivo ES">{{ row.pairEs }}</td>
+                            <td data-label="Infinitivo GL">{{ row.pairGl }}</td>
                             <td data-label="Forma ES">{{ row.es }}</td>
                             <td data-label="Forma GL">{{ row.gl }}</td>
                             <td data-label="Tiempo"><code>{{ row.tense }}</code></td>
