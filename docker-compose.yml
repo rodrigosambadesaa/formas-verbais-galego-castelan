@@ -28,3 +28,33 @@ services:
       retries: 3
       start_period: 20s
     restart: unless-stopped
+
+  web-php:
+    build:
+      context: .
+      dockerfile: web-php/Dockerfile
+    container_name: verbos-es-gl-php
+    ports:
+      - "28182:80"
+    healthcheck:
+      test: ["CMD-SHELL", "php -r '$$c=@stream_socket_client(\"tcp://127.0.0.1:80\", $$errno, $$errstr, 2); exit($$c ? 0 : 1);'"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+  web-laravel:
+    build:
+      context: .
+      dockerfile: web-laravel/Dockerfile
+    container_name: verbos-es-gl-laravel
+    ports:
+      - "28183:80"
+    healthcheck:
+      test: ["CMD-SHELL", "php -r '$$c=@stream_socket_client(\"tcp://127.0.0.1:80\", $$errno, $$errstr, 2); exit($$c ? 0 : 1);'"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    restart: unless-stopped
