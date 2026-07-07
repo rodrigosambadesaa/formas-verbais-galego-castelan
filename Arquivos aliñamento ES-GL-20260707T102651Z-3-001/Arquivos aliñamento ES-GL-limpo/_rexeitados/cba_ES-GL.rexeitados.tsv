@@ -1,0 +1,331 @@
+line_number	reason	raw_line
+85164	empty_field	he		IA-IA	2PS
+85165	empty_field	habed		IA-IA	2PP
+85166	empty_field	hayas		IN-IN	2PS
+85167	empty_field	hayamos		IN-IN	1PP
+85168	empty_field	hayáis		IN-IN	2PP
+102241	empty_field	ocurro		PI-PI	1PS
+102242	empty_field	ocurres		PI-PI	2PS
+102244	empty_field	ocurrimos		PI-PI	1PP
+102245	empty_field	ocurrís		PI-PI	2PP
+102247	empty_field	ocurría		II-II	1PS
+102248	empty_field	ocurrías		II-II	2PS
+102250	empty_field	ocurríamos		II-II	1PP
+102251	empty_field	ocurríais		II-II	2PP
+102253	empty_field	ocurrí		EI-EI	1PS
+102254	empty_field	ocurriste		EI-EI	2PS
+102256	empty_field	ocurrimos		EI-EI	1PP
+102257	empty_field	ocurristeis		EI-EI	2PP
+102259	empty_field	ocurriré		FI-FI	1PS
+102260	empty_field	ocurrirás		FI-FI	2PS
+102262	empty_field	ocurriremos		FI-FI	1PP
+102263	empty_field	ocurriréis		FI-FI	2PP
+102265	empty_field	ocurriría		TI-TI	1PS
+102266	empty_field	ocurrirías		TI-TI	2PS
+102268	empty_field	ocurriríamos		TI-TI	1PP
+102269	empty_field	ocurriríais		TI-TI	2PP
+102271	empty_field	he ocurrido		PPI-EI	1PS
+102272	empty_field	has ocurrido		PPI-EI	2PS
+102274	empty_field	hemos ocurrido		PPI-EI	1PP
+102275	empty_field	habéis ocurrido		PPI-EI	2PP
+102277	empty_field	había ocurrido		IPI-MI	1PS
+102278	empty_field	habías ocurrido		IPI-MI	2PS
+102280	empty_field	habíamos ocurrido		IPI-MI	1PP
+102281	empty_field	habíais ocurrido		IPI-MI	2PP
+102283	empty_field	hube ocurrido		EPI-EI	1PS
+102284	empty_field	hubiste ocurrido		EPI-EI	2PS
+102286	empty_field	hubimos ocurrido		EPI-EI	1PP
+102287	empty_field	hubisteis ocurrido		EPI-EI	2PP
+102289	empty_field	ocurra		PS-PS	1PS
+102290	empty_field	ocurras		PS-PS	2PS
+102292	empty_field	ocurramos		PS-PS	1PP
+102293	empty_field	ocurráis		PS-PS	2PP
+102295	empty_field	ocurriera		IS-IS	1PS
+102296	empty_field	ocurriese		IS-IS	1PS
+102297	empty_field	ocurrieras		IS-IS	2PS
+102298	empty_field	ocurrieses		IS-IS	2PS
+102301	empty_field	ocurriéramos		IS-IS	1PP
+102302	empty_field	ocurriésemos		IS-IS	1PP
+102303	empty_field	ocurrierais		IS-IS	2PP
+102304	empty_field	ocurrieseis		IS-IS	2PP
+102307	empty_field	ocurriere		FS-FS	1PS
+102308	empty_field	ocurrieres		FS-FS	2PS
+102310	empty_field	ocurriéremos		FS-FS	1PP
+102311	empty_field	ocurriereis		FS-FS	2PP
+102316	empty_field	ocurrir		FN-IP	1PS
+102317	empty_field	ocurrir		FN-IP	2PS
+102319	empty_field	ocurrir		FN-IP	1PP
+102320	empty_field	ocurrir		FN-IP	2PP
+102322	empty_field	ocurrir		FN(Inf)-IP	1PS
+102323	empty_field	ocurrir		FN(Inf)-IP	2PS
+102325	empty_field	ocurrir		FN(Inf)-IP	1PP
+102326	empty_field	ocurrir		FN(Inf)-IP	2PP
+169000	empty_field			PI-PI	1PS
+169001	empty_field			PI-PI	2PS
+169003	empty_field			PI-PI	1PP
+169004	empty_field			PI-PI	2PP
+169006	empty_field	acontecía		II-II	1PS
+169007	empty_field			II-II	2PS
+169009	empty_field			II-II	1PP
+169010	empty_field			II-II	2PP
+169012	empty_field			EI-EI	1PS
+169013	empty_field			EI-EI	2PS
+169015	empty_field			EI-EI	1PP
+169016	empty_field			EI-EI	2PP
+169018	empty_field			FI-FI	1PS
+169019	empty_field			FI-FI	2PS
+169021	empty_field			FI-FI	1PP
+169022	empty_field			FI-FI	2PP
+169024	empty_field	acontecería		TI-TI	1PS
+169025	empty_field			TI-TI	2PS
+169027	empty_field			TI-TI	1PP
+169028	empty_field			TI-TI	2PP
+169030	empty_field	he acontecido		PPI-EI	1PS
+169031	empty_field	has acontecido		PPI-EI	2PS
+169033	empty_field	hemos acontecido		PPI-EI	1PP
+169034	empty_field	habéis acontecido		PPI-EI	2PP
+169036	empty_field	había acontecido		IPI-MI	1PS
+169037	empty_field	habías acontecido		IPI-MI	2PS
+169039	empty_field	habíamos acontecido		IPI-MI	1PP
+169040	empty_field	habíais acontecido		IPI-MI	2PP
+169042	empty_field	hube acontecido		EPI-EI	1PS
+169043	empty_field	hubiste acontecido		EPI-EI	2PS
+169045	empty_field	hubimos acontecido		EPI-EI	1PP
+169046	empty_field	hubisteis acontecido		EPI-EI	2PP
+169048	empty_field	acontezca		PS-PS	1PS
+169049	empty_field			PS-PS	2PS
+169051	empty_field			PS-PS	1PP
+169052	empty_field			PS-PS	2PP
+169054	empty_field	aconteciera		IS-IS	1PS
+169055	empty_field	aconteciese		IS-IS	1PS
+169056	empty_field			IS-IS	2PS
+169059	empty_field			IS-IS	1PP
+169060	empty_field			IS-IS	2PP
+169063	empty_field	aconteciere		FS-FS	1PS
+169064	empty_field			FS-FS	2PS
+169066	empty_field			FS-FS	1PP
+169067	empty_field			FS-FS	2PP
+169072	empty_field	acontecer		FN-IP	1PS
+169073	empty_field	acontecer		FN-IP	2PS
+169075	empty_field	acontecer		FN-IP	1PP
+169076	empty_field	acontecer		FN-IP	2PP
+169078	empty_field	acontecer		FN(Inf)-IP	1PS
+169079	empty_field	acontecer		FN(Inf)-IP	2PS
+169081	empty_field	acontecer		FN(Inf)-IP	1PP
+169082	empty_field	acontecer		FN(Inf)-IP	2PP
+174538	empty_field			PI-PI	1PS
+174539	empty_field			PI-PI	2PS
+174541	empty_field			PI-PI	1PP
+174542	empty_field			PI-PI	2PP
+174544	empty_field			II-II	1PS
+174545	empty_field			II-II	2PS
+174547	empty_field			II-II	1PP
+174548	empty_field			II-II	2PP
+174550	empty_field			EI-EI	1PS
+174551	empty_field			EI-EI	2PS
+174553	empty_field			EI-EI	1PP
+174554	empty_field			EI-EI	2PP
+174556	empty_field			FI-FI	1PS
+174557	empty_field			FI-FI	2PS
+174559	empty_field			FI-FI	1PP
+174560	empty_field			FI-FI	2PP
+174562	empty_field			TI-TI	1PS
+174563	empty_field			TI-TI	2PS
+174565	empty_field			TI-TI	1PP
+174566	empty_field			TI-TI	2PP
+174568	empty_field	he competido		PPI-EI	1PS
+174569	empty_field	has competido		PPI-EI	2PS
+174571	empty_field	hemos competido		PPI-EI	1PP
+174572	empty_field	habéis competido		PPI-EI	2PP
+174574	empty_field	había competido		IPI-MI	1PS
+174575	empty_field	habías competido		IPI-MI	2PS
+174577	empty_field	habíamos competido		IPI-MI	1PP
+174578	empty_field	habíais competido		IPI-MI	2PP
+174580	empty_field	hube competido		EPI-EI	1PS
+174581	empty_field	hubiste competido		EPI-EI	2PS
+174583	empty_field	hubimos competido		EPI-EI	1PP
+174584	empty_field	hubisteis competido		EPI-EI	2PP
+174586	empty_field			PS-PS	1PS
+174587	empty_field			PS-PS	2PS
+174589	empty_field			PS-PS	1PP
+174590	empty_field			PS-PS	2PP
+174592	empty_field			IS-IS	1PS
+174593	empty_field			IS-IS	2PS
+174596	empty_field			IS-IS	1PP
+174597	empty_field			IS-IS	2PP
+174600	empty_field			FS-FS	1PS
+174601	empty_field			FS-FS	2PS
+174603	empty_field			FS-FS	1PP
+174604	empty_field			FS-FS	2PP
+174609	empty_field	competer		FN-IP	1PS
+174610	empty_field	competer		FN-IP	2PS
+174612	empty_field	competer		FN-IP	1PP
+174613	empty_field	competer		FN-IP	2PP
+174615	empty_field	competer		FN(Inf)-IP	1PS
+174616	empty_field	competer		FN(Inf)-IP	2PS
+174618	empty_field	competer		FN(Inf)-IP	1PP
+174619	empty_field	competer		FN(Inf)-IP	2PP
+176603	empty_field			PI-PI	1PS
+176604	empty_field			PI-PI	2PS
+176606	empty_field			PI-PI	1PP
+176607	empty_field			PI-PI	2PP
+176609	empty_field			II-II	1PS
+176610	empty_field			II-II	2PS
+176612	empty_field			II-II	1PP
+176613	empty_field			II-II	2PP
+176615	empty_field			EI-EI	1PS
+176616	empty_field			EI-EI	2PS
+176618	empty_field			EI-EI	1PP
+176619	empty_field			EI-EI	2PP
+176621	empty_field			FI-FI	1PS
+176622	empty_field			FI-FI	2PS
+176624	empty_field			FI-FI	1PP
+176625	empty_field			FI-FI	2PP
+176627	empty_field			TI-TI	1PS
+176628	empty_field			TI-TI	2PS
+176630	empty_field			TI-TI	1PP
+176631	empty_field			TI-TI	2PP
+176633	empty_field	he acaecido		PPI-EI	1PS
+176634	empty_field	has acaecido		PPI-EI	2PS
+176636	empty_field	hemos acaecido		PPI-EI	1PP
+176637	empty_field	habéis acaecido		PPI-EI	2PP
+176639	empty_field	había acaecido		IPI-MI	1PS
+176640	empty_field	habías acaecido		IPI-MI	2PS
+176642	empty_field	habíamos acaecido		IPI-MI	1PP
+176643	empty_field	habíais acaecido		IPI-MI	2PP
+176645	empty_field	hube acaecido		EPI-EI	1PS
+176646	empty_field	hubiste acaecido		EPI-EI	2PS
+176648	empty_field	hubimos acaecido		EPI-EI	1PP
+176649	empty_field	hubisteis acaecido		EPI-EI	2PP
+176651	empty_field			PS-PS	1PS
+176652	empty_field			PS-PS	2PS
+176654	empty_field			PS-PS	1PP
+176655	empty_field			PS-PS	2PP
+176657	empty_field			IS-IS	1PS
+176658	empty_field			IS-IS	2PS
+176661	empty_field			IS-IS	1PP
+176662	empty_field			IS-IS	2PP
+176665	empty_field			FS-FS	1PS
+176666	empty_field			FS-FS	2PS
+176668	empty_field			FS-FS	1PP
+176669	empty_field			FS-FS	2PP
+176674	empty_field	acaecer		FN-IP	1PS
+176675	empty_field	acaecer		FN-IP	2PS
+176677	empty_field	acaecer		FN-IP	1PP
+176678	empty_field	acaecer		FN-IP	2PP
+176680	empty_field	acaecer		FN(Inf)-IP	1PS
+176681	empty_field	acaecer		FN(Inf)-IP	2PS
+176683	empty_field	acaecer		FN(Inf)-IP	1PP
+176684	empty_field	acaecer		FN(Inf)-IP	2PP
+179416	empty_field			PI-PI	1PS
+179417	empty_field			PI-PI	2PS
+179419	empty_field			PI-PI	1PP
+179420	empty_field			PI-PI	2PP
+179422	empty_field			II-II	1PS
+179423	empty_field			II-II	2PS
+179425	empty_field			II-II	1PP
+179426	empty_field			II-II	2PP
+179428	empty_field			EI-EI	1PS
+179429	empty_field			EI-EI	2PS
+179431	empty_field			EI-EI	1PP
+179432	empty_field			EI-EI	2PP
+179434	empty_field			FI-FI	1PS
+179435	empty_field			FI-FI	2PS
+179437	empty_field			FI-FI	1PP
+179438	empty_field			FI-FI	2PP
+179440	empty_field			TI-TI	1PS
+179441	empty_field			TI-TI	2PS
+179443	empty_field			TI-TI	1PP
+179444	empty_field			TI-TI	2PP
+179446	empty_field	he atañido		PPI-EI	1PS
+179447	empty_field	has atañido		PPI-EI	2PS
+179449	empty_field	hemos atañido		PPI-EI	1PP
+179450	empty_field	habéis atañido		PPI-EI	2PP
+179452	empty_field	había atañido		IPI-MI	1PS
+179453	empty_field	habías atañido		IPI-MI	2PS
+179455	empty_field	habíamos atañido		IPI-MI	1PP
+179456	empty_field	habíais atañido		IPI-MI	2PP
+179458	empty_field	hube atañido		EPI-EI	1PS
+179459	empty_field	hubiste atañido		EPI-EI	2PS
+179461	empty_field	hubimos atañido		EPI-EI	1PP
+179462	empty_field	hubisteis atañido		EPI-EI	2PP
+179464	empty_field			PS-PS	1PS
+179465	empty_field			PS-PS	2PS
+179467	empty_field			PS-PS	1PP
+179468	empty_field			PS-PS	2PP
+179470	empty_field			IS-IS	1PS
+179471	empty_field			IS-IS	2PS
+179474	empty_field			IS-IS	1PP
+179475	empty_field			IS-IS	2PP
+179478	empty_field			FS-FS	1PS
+179479	empty_field			FS-FS	2PS
+179481	empty_field			FS-FS	1PP
+179482	empty_field			FS-FS	2PP
+179487	empty_field	atañer		FN-IP	1PS
+179488	empty_field	atañer		FN-IP	2PS
+179490	empty_field	atañer		FN-IP	1PP
+179491	empty_field	atañer		FN-IP	2PP
+179493	empty_field	atañer		FN(Inf)-IP	1PS
+179494	empty_field	atañer		FN(Inf)-IP	2PS
+179496	empty_field	atañer		FN(Inf)-IP	1PP
+179497	empty_field	atañer		FN(Inf)-IP	2PP
+242213	empty_field	sobrevengo		PI-PI	1PS
+242214	empty_field	sobrevienes		PI-PI	2PS
+242216	empty_field	sobrevenimos		PI-PI	1PP
+242217	empty_field	sobrevenís		PI-PI	2PP
+242218	empty_field	sobrevenís		PI-PI	2PP
+242220	empty_field	sobrevenía		II-II	1PS
+242221	empty_field	sobrevenías		II-II	2PS
+242223	empty_field	sobreveníamos		II-II	1PP
+242224	empty_field	sobreveníais		II-II	2PP
+242226	empty_field	sobrevine		EI-EI	1PS
+242227	empty_field	sobreviniste		EI-EI	2PS
+242229	empty_field	sobrevinimos		EI-EI	1PP
+242230	empty_field	sobrevinisteis		EI-EI	2PP
+242232	empty_field	sobrevendré		FI-FI	1PS
+242233	empty_field	sobrevendrás		FI-FI	2PS
+242235	empty_field	sobrevendremos		FI-FI	1PP
+242236	empty_field	sobrevendréis		FI-FI	2PP
+242238	empty_field	sobrevendría		TI-TI	1PS
+242239	empty_field	sobrevendrías		TI-TI	2PS
+242241	empty_field	sobrevendríamos		TI-TI	1PP
+242242	empty_field	sobrevendríais		TI-TI	2PP
+242244	empty_field	he sobrevenido		PPI-EI	1PS
+242245	empty_field	has sobrevenido		PPI-EI	2PS
+242247	empty_field	hemos sobrevenido		PPI-EI	1PP
+242248	empty_field	habéis sobrevenido		PPI-EI	2PP
+242250	empty_field	había sobrevenido		IPI-MI	1PS
+242251	empty_field	habías sobrevenido		IPI-MI	2PS
+242253	empty_field	habíamos sobrevenido		IPI-MI	1PP
+242254	empty_field	habíais sobrevenido		IPI-MI	2PP
+242256	empty_field	hube sobrevenido		EPI-EI	1PS
+242257	empty_field	hubiste sobrevenido		EPI-EI	2PS
+242259	empty_field	hubimos sobrevenido		EPI-EI	1PP
+242260	empty_field	hubisteis sobrevenido		EPI-EI	2PP
+242262	empty_field	sobrevenga		PS-PS	1PS
+242263	empty_field	sobrevengas		PS-PS	2PS
+242265	empty_field	sobrevengamos		PS-PS	1PP
+242266	empty_field	sobrevengáis		PS-PS	2PP
+242268	empty_field	sobreviniera		IS-IS	1PS
+242269	empty_field	sobreviniese		IS-IS	1PS
+242270	empty_field	sobrevinieras		IS-IS	2PS
+242271	empty_field	sobrevinieses		IS-IS	2PS
+242274	empty_field	sobreviniéramos		IS-IS	1PP
+242275	empty_field	sobreviniésemos		IS-IS	1PP
+242276	empty_field	sobrevinierais		IS-IS	2PP
+242277	empty_field	sobrevinieseis		IS-IS	2PP
+242280	empty_field	sobreviniere		FS-FS	1PS
+242281	empty_field	sobrevinieres		FS-FS	2PS
+242283	empty_field	sobreviniéremos		FS-FS	1PP
+242284	empty_field	sobreviniereis		FS-FS	2PP
+242290	empty_field	sobrevenir		FN-IP	1PS
+242291	empty_field	sobrevenir		FN-IP	2PS
+242293	empty_field	sobrevenir		FN-IP	1PP
+242294	empty_field	sobrevenir		FN-IP	2PP
+242296	empty_field	sobrevenir		FN(Inf)-IP	1PS
+242297	empty_field	sobrevenir		FN(Inf)-IP	2PS
+242299	empty_field	sobrevenir		FN(Inf)-IP	1PP
+242300	empty_field	sobrevenir		FN(Inf)-IP	2PP
+244008	empty_field			PI-PI	2PS
+244009	empty_field		abolimos	PI-PI	1PP
+244071	empty_field			IA-IA	2PS
