@@ -1,0 +1,40 @@
+name: PHP critical runtime security
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  patched-runtime:
+    name: Verify patched PHP runtime (${{ matrix.dockerfile }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - dockerfile: web-php/Dockerfile
+            context: .
+          - dockerfile: web-laravel/Dockerfile
+            context: .
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Build application image from latest secure base
+        run: docker build --pull --file "${{ matrix.dockerfile }}" --tag php2shell-runtime:ci "${{ matrix.context }}"
+      - name: Reject PHP builds affected by the October 2026 critical RCEs
+        run: |
+          docker run --rm --entrypoint php php2shell-runtime:ci -r '
+          $minimum = ["8.2" => 80235, "8.3" => 80336, "8.4" => 80427, "8.5" => 80512];
+          $branch = PHP_MAJOR_VERSION . "." . PHP_MINOR_VERSION;
+          if (!isset($minimum[$branch]) || PHP_VERSION_ID < $minimum[$branch]) {
+              fwrite(STDERR, "Unpatched or unsupported PHP: " . PHP_VERSION . PHP_EOL);
+              exit(1);
+          }
+          echo "Patched PHP runtime: " . PHP_VERSION . PHP_EOL;
+          '

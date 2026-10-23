@@ -4,7 +4,7 @@ WORKDIR /app
 COPY web-laravel/composer.json web-laravel/composer.lock ./
 RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
 
-FROM php:8.4-apache
+FROM php:8.4.27-apache
 
 COPY web-laravel/apache.conf /etc/apache2/sites-available/000-default.conf
 COPY web-laravel /var/www/app
