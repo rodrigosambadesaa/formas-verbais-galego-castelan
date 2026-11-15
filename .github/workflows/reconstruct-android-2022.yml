@@ -23,7 +23,7 @@ jobs:
         shell: bash
         env:
           ORIGINAL_MASTER: 53bf91dd60dd7056bb1fc186552bfcc313c6b7f4
-          SPLICE_AFTER: 6972b638c642cf4972ad9ed2e922227f7a4f409a
+          SPLICE_AFTER: 9d4b1db2cda29dedb4fa59456b35cc55903723d7
           FEATURE_BRANCH: feature/android-kotlin-verbs
         run: |
           set -Eeuo pipefail
@@ -40,12 +40,12 @@ jobs:
 
           git checkout --detach "$SPLICE_AFTER"
           git apply --index /tmp/android.patch
-          GIT_AUTHOR_DATE="2022-07-10T11:23:00+02:00" \
-          GIT_COMMITTER_DATE="2022-07-10T11:23:00+02:00" \
+          GIT_AUTHOR_DATE="2022-07-11T10:37:00+02:00" \
+          GIT_COMMITTER_DATE="2022-07-11T10:37:00+02:00" \
             git commit -m "feat(android): native Kotlin verb explorer (2026 reconstruction)"
           inserted="$(git rev-parse HEAD)"
-          test "$(git show -s --format=%aI "$inserted")" = "2022-07-10T11:23:00+02:00"
-          test "$(git show -s --format=%cI "$inserted")" = "2022-07-10T11:23:00+02:00"
+          test "$(git show -s --format=%aI "$inserted")" = "2022-07-11T10:37:00+02:00"
+          test "$(git show -s --format=%cI "$inserted")" = "2022-07-11T10:37:00+02:00"
 
           git checkout --detach "$ORIGINAL_MASTER"
           git rebase --committer-date-is-author-date --onto "$inserted" "$SPLICE_AFTER"
@@ -58,4 +58,4 @@ jobs:
           test "$(git log -1 --format=%s)" = \
             "security: patch critical PHP2Shell runtime RCE vulnerabilities (#3)"
           git log --oneline --date=iso -16
-          git push origin HEAD:refs/heads/historical/android-kotlin-2022
+          git push --force-with-lease=refs/heads/historical/android-kotlin-2022:412fbd83738015d439e6c4dadcb173cff50bc778 origin HEAD:refs/heads/historical/android-kotlin-2022
