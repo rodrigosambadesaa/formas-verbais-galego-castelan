@@ -5,9 +5,10 @@ insertarlo en la secuencia histórica fechada en 2022. Por esa razón, se
 preparó una **reconstrucción del historial**, no una afirmación de que este
 código existiese realmente en 2022.
 
-El commit de incorporación a la historia se ubica a continuación del commit
-`6972b638` («Add Flutter interface», 10 de julio de 2022), con fecha
-`2022-07-10 11:23:00 +02:00` (hora peninsular española).
+El commit reconstruido se ubica **después** de `9d4b1db2` («Add Flutter
+interface», 10 de julio de 2022) y **antes** de `73cd01b0`
+(«Updates», 11 de julio de 2022). Su fecha reconstruida es
+`2022-07-11 10:37:00 +02:00` (hora peninsular española).
 
 Se preservó una referencia al historial anterior en
 `backup/master-before-android-history-rewrite`; la rama
