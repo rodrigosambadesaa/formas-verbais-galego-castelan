@@ -1,0 +1,61 @@
+name: Reconstruct 2022 Android history (review branch)
+
+on:
+  push:
+    branches:
+      - feature/android-kotlin-verbs
+    paths:
+      - '.github/workflows/reconstruct-android-2022.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  reconstruct:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Reconstruct and validate on isolated branch
+        shell: bash
+        env:
+          ORIGINAL_MASTER: 53bf91dd60dd7056bb1fc186552bfcc313c6b7f4
+          SPLICE_AFTER: 6972b638c642cf4972ad9ed2e922227f7a4f409a
+          FEATURE_BRANCH: feature/android-kotlin-verbs
+        run: |
+          set -Eeuo pipefail
+          git config user.name "Rodrigo Sambade"
+          git config user.email "43375046+rodrigosambadesaa@users.noreply.github.com"
+          git fetch origin master "$FEATURE_BRANCH"
+          test "$(git rev-parse origin/master)" = "$ORIGINAL_MASTER"
+
+          feature_head="$(git rev-parse "origin/$FEATURE_BRANCH")"
+          original_count="$(git rev-list --count "$ORIGINAL_MASTER")"
+          git diff --binary "$ORIGINAL_MASTER" "$feature_head" -- \
+            android-kotlin .github/workflows/android-kotlin.yml > /tmp/android.patch
+          test -s /tmp/android.patch
+
+          git checkout --detach "$SPLICE_AFTER"
+          git apply --index /tmp/android.patch
+          GIT_AUTHOR_DATE="2022-07-10T11:23:00+02:00" \
+          GIT_COMMITTER_DATE="2022-07-10T11:23:00+02:00" \
+            git commit -m "feat(android): native Kotlin verb explorer (2026 reconstruction)"
+          inserted="$(git rev-parse HEAD)"
+          test "$(git show -s --format=%aI "$inserted")" = "2022-07-10T11:23:00+02:00"
+          test "$(git show -s --format=%cI "$inserted")" = "2022-07-10T11:23:00+02:00"
+
+          git checkout --detach "$ORIGINAL_MASTER"
+          git rebase --committer-date-is-author-date --onto "$inserted" "$SPLICE_AFTER"
+          test "$(git rev-list --count HEAD)" -eq "$((original_count + 1))"
+          git diff --quiet HEAD "$feature_head" -- \
+            android-kotlin .github/workflows/android-kotlin.yml
+          git diff --quiet HEAD "$ORIGINAL_MASTER" -- . \
+            ':(exclude)android-kotlin' \
+            ':(exclude).github/workflows/android-kotlin.yml'
+          test "$(git log -1 --format=%s)" = \
+            "security: patch critical PHP2Shell runtime RCE vulnerabilities (#3)"
+          git log --oneline --date=iso -16
+          git push origin HEAD:refs/heads/historical/android-kotlin-2022
