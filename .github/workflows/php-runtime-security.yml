@@ -27,10 +27,10 @@ jobs:
           persist-credentials: false
       - name: Build application image from latest secure base
         run: docker build --pull --file "${{ matrix.dockerfile }}" --tag php2shell-runtime:ci "${{ matrix.context }}"
-      - name: Reject PHP builds affected by the October 2026 critical RCEs
+      - name: Reject PHP builds affected by the October and November 2026 security vulnerabilities
         run: |
           docker run --rm --entrypoint php php2shell-runtime:ci -r '
-          $minimum = ["8.2" => 80235, "8.3" => 80336, "8.4" => 80427, "8.5" => 80512];
+          $minimum = ["8.2" => 80236, "8.3" => 80337, "8.4" => 80428, "8.5" => 80513];
           $branch = PHP_MAJOR_VERSION . "." . PHP_MINOR_VERSION;
           if (!isset($minimum[$branch]) || PHP_VERSION_ID < $minimum[$branch]) {
               fwrite(STDERR, "Unpatched or unsupported PHP: " . PHP_VERSION . PHP_EOL);
